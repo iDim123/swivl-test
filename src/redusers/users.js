@@ -35,16 +35,11 @@ export default function users(state = initialState, action) {
         };
         break;
       }
-      case FETCH_USERS_SUCCESS: {
-        const { field, data } = action;
-        drafState.fetchStatus[field].pending = false;
-        drafState[field] = data;
-        break;
-      }
+      case FETCH_USERS_SUCCESS:
       case FETCH_USER_SUCCESS: {
         const { field, data } = action;
         drafState.fetchStatus[field].pending = false;
-        drafState.currentUser = data;
+        drafState[field] = data;
         break;
       }
       case SET_CURRENT_USER: {
