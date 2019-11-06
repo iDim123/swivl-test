@@ -1,0 +1,18 @@
+.app-nav {
+  display: flex;
+  justify-content: center;
+}
+.app-nav a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  padding: 12px 12px 14px 12px;
+  text-align: center;
+}
+
+.app-nav a.active,
+.app-nav a:hover {
+  background-color:  #61dafb;
+  color: #000;
+  transition: 0.5s;
+}
