@@ -7,13 +7,26 @@ import PropTypes from 'prop-types';
 import { fetchUserAction } from '../../api/api';
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
 
+const UserField = ({ field, children, link }) =>
+  field !== null && (
+    <li>
+      <span className="text-bold">{children}</span>
+      {link ? (
+        <a href={field} target="_blank" rel="noopener noreferrer">
+          {field}
+        </a>
+      ) : (
+        field
+      )}
+    </li>
+  );
+
 const UserProfile = ({ user = null, setCurrentUser }) => {
   const { username } = useParams();
 
   useEffect(() => {
     if (user === null) setCurrentUser(username);
   });
-
   if (user === null) return <LoadingSpinner />;
   return (
     <div className="user-profile__container">
@@ -55,24 +68,3 @@ export default connect(
   mapDispatchToProps
 )(UserProfile);
 
-
-
-function UserField({ field, children, link }) {
-  if (field === null) return null;
-  if (link)
-    return (
-      <li>
-        <span className="text-bold">{children}</span>
-        {` `}
-        <a href={field} target="_blank" rel="noopener noreferrer">
-          {field}
-        </a>
-      </li>
-    );
-  return (
-    <li>
-      <span className="text-bold">{children}</span>
-      {` ${field}`}
-    </li>
-  );
-}

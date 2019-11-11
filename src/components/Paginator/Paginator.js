@@ -25,11 +25,11 @@ const Paginator = ({ goToPrevPage, goToNextPage, goToFirstPage, prevPagesUrl }) 
         <span className="page-link">First</span>
       </li>
       {prevPagesUrl.length > 0 && (
-        <li className="page-item" onClick={() => goToPrevPage()}>
+        <li className="page-item" onClick={goToPrevPage}>
           <span className="page-link">Prev</span>
         </li>
       )}
-      <li className="page-item" onClick={() => goToNextPage()}>
+      <li className="page-item" onClick={goToNextPage}>
         <span className="page-link">Next</span>
       </li>
     </ul>

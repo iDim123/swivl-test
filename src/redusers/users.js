@@ -4,7 +4,6 @@ const FETCH_DATA_PENDING = 'FETCH_DATA_PENDING';
 const FETCH_DATA_ERROR = 'FETCH_DATA_ERROR';
 export const FETCH_USERS_SUCCESS = 'FETCH_USERS_SUCCESS';
 const FETCH_USER_SUCCESS = 'FETCH_USER_SUCCESS';
-const SET_CURRENT_USER = 'SET_CURRENT_USER';
 
 const initialState = {
   users: [],
@@ -40,10 +39,6 @@ export default function users(state = initialState, action) {
         const { field, data } = action;
         drafState.fetchStatus[field].pending = false;
         drafState[field] = data;
-        break;
-      }
-      case SET_CURRENT_USER: {
-        drafState.currentUser = state.users.find(user => user.id === action.id);
         break;
       }
       default:
@@ -82,12 +77,5 @@ export const fetchUserSuccess = ({ field, data }) => {
     type: FETCH_USER_SUCCESS,
     field,
     data
-  };
-};
-
-export const setCurrentUserAction = id => {
-  return {
-    type: SET_CURRENT_USER,
-    id
   };
 };
