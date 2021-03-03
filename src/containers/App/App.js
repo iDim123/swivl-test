@@ -8,6 +8,7 @@ import UsersListCon from '../UsersList/UsersListCon';
 import UserProfile from '../UserProfile/UserProfile';
 
 function App() {
+  console.log('task3', 9);
   return (
     <Router>
       <div className="App">
