@@ -4,6 +4,7 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
+  console.log('task 1', 1);
   return (
     <header>
       <span>Swivl's test</span>
